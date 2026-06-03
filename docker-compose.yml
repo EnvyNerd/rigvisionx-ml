@@ -1,0 +1,62 @@
+services:
+  terraenergy-ai-ml:
+    build:
+      context: .
+      args:
+        PYTHON_BASE_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.11-slim}
+    container_name: terraenergy-ai-ml
+    ports:
+      - "8080:8080"
+    environment:
+      # Runtime configs (customize as needed)
+      - ENV=production
+      - PYTHONPATH=/app/src
+      - RIGVISIONX_DB_PATH=/app/data/rigvisionx.db
+      - RIGVISIONX_JWT_SECRET=${RIGVISIONX_JWT_SECRET:-rigvisionx-dev-secret}
+      - RIGVISIONX_ADMIN_USERS=${RIGVISIONX_ADMIN_USERS:-admin}
+
+      # Example: Fintech ROI settings (optional)
+      - COST_PER_HOUR=5000
+      - TARIFF_PER_KWH=0.45
+
+      # Example: Model paths (optional if you load persisted models)
+      - MODEL_DIR=/app/models
+    volumes:
+      # Persist models if you export them
+      - ./models:/app/models
+
+      # Optional: mount configs for easy edits without rebuild
+      - ./configs:/app/configs:ro
+
+      # Optional: mount data for local testing
+      - ./data:/app/data
+    restart: unless-stopped
+
+  terraenergy-ai-dashboard:
+    build:
+      context: .
+      args:
+        PYTHON_BASE_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.11-slim}
+    container_name: terraenergy-ai-dashboard
+    command: ["python", "-m", "rigvisionx.serving.dashboard"]
+    ports:
+      - "8050:8050"
+    environment:
+      - PYTHONPATH=/app/src
+      - DASH_DATA_DIR=/app/data/generated
+      - AUTH_API_URL=http://terraenergy-ai-ml:8080/auth
+      - TRAIN_API_URL=http://terraenergy-ai-ml:8080/train/async
+      - RISK_API_URL=http://terraenergy-ai-ml:8080/failure-risk/predict
+      - DECISION_API_URL=http://terraenergy-ai-ml:8080/decision/risk
+      - FINTECH_REPORT_URL=http://terraenergy-ai-ml:8080/fintech/report
+      - FINTECH_REPORT_PDF_URL=http://terraenergy-ai-ml:8080/fintech/report/pdf
+      - FINTECH_FORECAST_URL=http://terraenergy-ai-ml:8080/fintech/forecast
+      - FINTECH_ROI_URL=http://terraenergy-ai-ml:8080/fintech/roi
+      - FINTECH_COMPARE_URL=http://terraenergy-ai-ml:8080/fintech/compare
+      - FINTECH_SAVINGS_URL=http://terraenergy-ai-ml:8080/fintech/cost-savings
+      - SYSTEM_REPORT_PDF_URL=http://terraenergy-ai-ml:8080/reports/system/pdf
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - terraenergy-ai-ml
+    restart: unless-stopped

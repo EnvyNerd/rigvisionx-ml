@@ -1,0 +1,45 @@
+﻿```mermaid
+flowchart TD
+  Client["Client / Dashboard"] --> API["FastAPI: rigvisionx.serving.api"]
+
+  API --> Root["GET /"]
+  API --> Health["GET /health"]
+
+  API --> AEOS["POST /aeos/energy-deviation (+batch)"]
+  AEOS --> AEOSCalc["calculate_deviation"]
+
+  API --> Train["POST /train"]
+  Train --> Pipeline["TrainingPipeline"]
+  Pipeline --> Models["models/*.pkl"]
+
+  API --> TrainAsync["POST /train/async"]
+  TrainAsync --> Jobs["Training jobs"]
+  Jobs --> Pipeline
+
+  API --> TrainStatus["GET /train/status/{job_id}"]
+  TrainStatus --> Jobs
+
+  API --> Failure["POST /failure-risk/predict"]
+  Failure --> FailureModel["failure_risk_model.pkl"]
+  FailureModel --> FailureResp["Risk scores"]
+
+  API --> Decision["POST /decision/risk"]
+  Decision --> RiskFusion["risk_fusion"]
+  RiskFusion --> Thresholds["thresholds"]
+  Thresholds --> Actions["actions"]
+
+  API --> FinReport["POST /fintech/report"]
+  FinReport --> Reports["reporting"]
+
+  API --> FinForecast["POST /fintech/forecast"]
+  FinForecast --> Forecast["forecast_costs"]
+
+  API --> FinROI["POST /fintech/roi"]
+  FinROI --> ROI["roi"]
+
+  API --> FinCompare["POST /fintech/compare"]
+  FinCompare --> Compare["compare_scenarios"]
+
+  API --> FinSavings["POST /fintech/cost-savings"]
+  FinSavings --> Savings["calculate_cost_savings"]
+```

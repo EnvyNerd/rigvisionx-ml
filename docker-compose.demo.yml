@@ -1,0 +1,9 @@
+services:
+  terraenergy-ai-ml:
+    environment:
+      - RIGVISIONX_DEMO_MODE=true
+      - RIGVISIONX_DEMO_DAYS=7
+      - RIGVISIONX_LICENSED=true
+      - RIGVISIONX_DEMO_STATE_PATH=/app/data/demo/demo_state.json
+      - RIGVISIONX_DB_PATH=/app/data/demo/rigvisionx_demo.db
+      - MODEL_DIR=/app/models/demo

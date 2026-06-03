@@ -1,0 +1,76 @@
+﻿flowchart LR
+  subgraph Sources["Data Sources"]
+    LiveSensors["Live sensors"]
+    CSVHistory["Historical CSVs"]
+    Generator["Synthetic generator\nrigvisionx.data_generator"]
+  end
+
+  subgraph Ingest["Ingestion"]
+    MQTT["MQTT adapter"]
+    OPCUA["OPC-UA adapter"]
+    CSVReplay["CSV replay adapter"]
+    RawStore["data/raw + data/generated + data/uploads"]
+  end
+
+  subgraph Pipeline["Training Pipeline"]
+    Configs["configs/*.yaml"]
+    Preprocess["AEOS preprocessing\nbaseline, clean, normalize,\nenergy deviation"]
+    Features["Feature engineering\nwindowing + feature_set"]
+    Split["Train/test split"]
+    Train["Train models\nfailure_risk / rul / anomaly"]
+    Eval["Evaluate models\nmetrics"]
+  end
+
+  subgraph Artifacts["Model Artifacts"]
+    Models["models/*.pkl\nbaseline.pkl"]
+    Summary["training_summary.yaml"]
+  end
+
+  subgraph Serving["FastAPI Service"]
+    API["rigvisionx.serving.api"]
+    Endpoints["Core: /train, /train/async,\n/train/status/{job_id}\nInference: /failure-risk/predict\nAEOS: /aeos/energy-deviation(+batch)\nDecision: /decision/risk\nFinTech: /fintech/report, /fintech/forecast,\n/fintech/roi, /fintech/compare, /fintech/cost-savings\nHealth: /health, /"]
+    Responses["Predictions + metrics + status"]
+  end
+
+  subgraph Dashboard["Dash UI"]
+    Dash["rigvisionx.serving.dashboard"]
+    Visuals["Charts, alerts, tables"]
+  end
+
+  subgraph Decisions["Decision Engine"]
+    RiskFusion["risk_fusion"]
+    Thresholds["thresholds"]
+    Actions["actions\nalerts/recommendations"]
+  end
+
+  subgraph Finance["FinTech"]
+    Costs["cost_models"]
+    ROI["roi"]
+    Reports["reporting"]
+  end
+
+  LiveSensors --> MQTT --> RawStore
+  LiveSensors --> OPCUA --> RawStore
+  CSVHistory --> CSVReplay --> RawStore
+  Generator --> RawStore
+
+  RawStore --> Preprocess
+  Configs --> Preprocess
+  Preprocess --> Features --> Split --> Train --> Eval
+  Train --> Models
+  Eval --> Summary
+
+  Models --> API
+  API --> Endpoints --> Responses
+
+  Dash -->|reads CSVs| RawStore
+  Dash -->|calls API| API
+  Responses --> Visuals
+
+  API --> RiskFusion --> Thresholds --> Actions
+  API --> Reports
+  API --> ROI
+  API --> Costs
+  Actions --> Responses
+  Reports --> Responses
+```

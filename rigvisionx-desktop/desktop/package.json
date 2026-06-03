@@ -1,0 +1,44 @@
+﻿{
+  "name": "rigvisionx-desktop",
+  "private": true,
+  "version": "0.1.0",
+  "description": "TerraEnergy AI desktop shell",
+  "main": "electron/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "electron .",
+    "dev:all": "concurrently -k \"npm run ui:dev\" \"cross-env VITE_DEV_SERVER_URL=http://localhost:5173 npm run dev\"",
+    "start": "electron .",
+    "ui:dev": "npm --prefix ui run dev",
+    "ui:build": "npm --prefix ui run build",
+    "ui:preview": "npm --prefix ui run preview",
+    "pack": "npm run ui:build && electron-builder --dir",
+    "dist": "npm run ui:build && electron-builder"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^32.1.2",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "keytar": "^7.9.0"
+  },
+  "build": {
+    "appId": "com.rigvisionx.desktop",
+    "productName": "TerraEnergy AI Desktop",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**",
+      "ui/dist/**",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
+

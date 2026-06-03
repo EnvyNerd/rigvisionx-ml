@@ -1,0 +1,12 @@
+{
+  "admin": {
+    "salt": "4512717acd53207463399daf2f8ecbf0",
+    "password_hash": "af5be1472c8e708df53979f7963cb10f5eda7b0fdfd3aaf5da9e56fe7331e2b7",
+    "created_at": "2026-01-27T03:50:55.331930+00:00"
+  },
+  "Witschi": {
+    "salt": "a8496f6a29d6f392084736a38ed88f9b",
+    "password_hash": "9b3f30cc33898920745ea061868aa41896399efb695504d76907b5ad0dbb25cd",
+    "created_at": "2026-01-27T05:28:34.291323+00:00"
+  }
+}

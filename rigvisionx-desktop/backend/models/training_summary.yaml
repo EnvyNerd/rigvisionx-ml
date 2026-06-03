@@ -1,0 +1,255 @@
+baseline:
+  base_load:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - &id001 !!python/object/apply:numpy.dtype
+      args:
+      - f8
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - <
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - !!binary |
+      AAAAAADAV0A=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      s9QsSjWFTUA=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      anGqP9YMQkA=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      Z61CSDXsM0A=
+  bearing_temperature:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      3xJj9VGmWkA=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      Gav8Pu48UkA=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      ycD4kQ8PREA=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      vJ8bhHPmMUA=
+  day:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - &id002 !!python/object/apply:numpy.dtype
+      args:
+      - i8
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - <
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - !!binary |
+      GwAAAAAAAAA=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      AAAAAAAALEA=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id002
+    - !!binary |
+      AQAAAAAAAAA=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      21bktPktH0A=
+  day_of_week:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id002
+    - !!binary |
+      BgAAAAAAAAA=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      x3Ecx3EcB0A=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id002
+    - !!binary |
+      AAAAAAAAAAA=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      U/EycVY5/z8=
+  estimated_rul:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      AAAAAAAAFEA=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      omfKe9QAEUA=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      iJ4p71EDDEA=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      uMqYnD2/2z8=
+  failure_indicator:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id002
+    - !!binary |
+      AAAAAAAAAAA=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      AAAAAAAAAAA=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id002
+    - !!binary |
+      AAAAAAAAAAA=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      AAAAAAAAAAA=
+  flow_rate:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      XV0gzGUeVUA=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      53pftOcxUUA=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      OS9Yab3ISkA=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      GygxgeYNG0A=
+  hour:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id002
+    - !!binary |
+      FwAAAAAAAAA=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      AAAAAAAAJ0A=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id002
+    - !!binary |
+      AAAAAAAAAAA=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      lU2+dMu1G0A=
+  power_consumption:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      abOVxx1iWkA=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      q2LEGZm9T0A=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      lkO+KTlYO0A=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      soFrEaGUNEA=
+  pressure:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      LfV20ZLXTUA=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      4im0nsD1RkA=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      Cwazmhr4QUA=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      flp7U7q4FUA=
+  temperature:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      AAAAAADAV0A=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      BcxirlL5UEA=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      LVP4IjxcQ0A=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      Czyuw02jMUA=
+  vibration:
+    max: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      4vZQqey06T8=
+    mean: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      SgpUpx2u4T8=
+    min: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      w/8qzbGo1D8=
+    std: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      A7Aj3mbMtj8=
+config:
+  data:
+    features_path: data/features
+    processed_path: data/processed
+    raw_path: data/raw
+  logging:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level: INFO
+  project:
+    name: rigvisionx
+    version: 0.1.0
+data_shape: !!python/tuple
+- 880
+- 17
+evaluation_results:
+  failure_risk:
+    accuracy: 1.0
+    f1: 1.0
+    precision: 1.0
+    recall: 1.0
+features_shape: !!python/tuple
+- 143
+- 83
+timestamp: '2026-02-06T08:10:34.373765'

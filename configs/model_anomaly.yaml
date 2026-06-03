@@ -1,0 +1,14 @@
+# Anomaly Detection Model Configuration
+
+model:
+  name: anomaly
+  type: unsupervised
+
+training:
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.001
+
+evaluation:
+  test_size: 0.2
+  contamination: 0.05

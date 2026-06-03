@@ -1,0 +1,15 @@
+# Base configuration file
+# Override specific settings in model-specific config files
+
+project:
+  name: rigvisionx
+  version: 0.1.0
+
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+data:
+  raw_path: data/raw
+  processed_path: data/processed
+  features_path: data/features

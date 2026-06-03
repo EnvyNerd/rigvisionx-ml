@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap");
+
+:root {
+  color-scheme: light;
+  background: #0d0f14;
+  color: #f4f6fb;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a2130 0%, #0d0f14 60%);
+}
+
+.app {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 48px 28px 72px;
+}
+
+.header h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #a8b2c7;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.subhead {
+  color: #c2cadb;
+  max-width: 520px;
+  margin: 0;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 32px 0;
+  padding: 22px 26px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.form-panel {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: end;
+  gap: 22px;
+}
+
+@media (min-width: 900px) {
+  .form-panel {
+    grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr) auto;
+    align-items: center;
+  }
+  .form-panel .button {
+    justify-self: end;
+    align-self: center;
+    min-width: 200px;
+  }
+}
+
+.label {
+  margin: 0 0 6px;
+  color: #96a2b7;
+  font-size: 0.85rem;
+}
+
+.value {
+  margin: 6px 0 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.hint {
+  margin: 0;
+  color: #7e899c;
+  font-size: 0.85rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.grid-forms {
+  margin-top: 28px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+}
+
+.card {
+  padding: 24px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+button.card {
+  appearance: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+button.card:focus-visible {
+  outline: 2px solid rgba(130, 166, 255, 0.7);
+  outline-offset: 2px;
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.card p {
+  margin: 0;
+  color: #c2cadb;
+}
+
+.form-card h2 {
+  margin-bottom: 16px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px 20px;
+  align-items: end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.split {
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 900px) {
+  .field.split {
+    flex-direction: row;
+  }
+  .field.split > div {
+    flex: 1;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(11, 14, 20, 0.8);
+  color: #f4f6fb;
+  font-size: 0.95rem;
+}
+
+.input:focus {
+  outline: 1px solid rgba(130, 166, 255, 0.6);
+}
+
+.button {
+  align-self: flex-start;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f4f6fb;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form .button {
+  justify-self: end;
+  align-self: center;
+}
+
+.button.primary {
+  background: linear-gradient(130deg, #3a4bff, #1f8fff);
+  border: none;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c2cadb;
+  font-size: 0.9rem;
+  grid-column: 1 / -1;
+}
+
+.result {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(8, 10, 16, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-height: 280px;
+  overflow: auto;
+  font-size: 0.78rem;
+  color: #c8d4f0;
+}
+
+.result-block {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-panel {
+  margin: 16px 0 4px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(8, 10, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  height: 260px;
+}
+
+.chart-panel canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.stat-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin-bottom: 16px;
+}
+
+.section-title {
+  margin: 18px 0 8px;
+  font-size: 0.95rem;
+  color: #d6deed;
+}
+
+.bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) 2fr minmax(48px, auto);
+  gap: 8px;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #d2d9e9;
+}
+
+.bar-track {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1f8fff, #3a4bff);
+}
+
+.bar-value {
+  text-align: right;
+}
+
+.table {
+  display: grid;
+  gap: 6px;
+}
+
+.table-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #cbd3e6;
+  line-height: 1.4;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.table-head {
+  color: #9ea9be;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  padding: 0 8px;
+}
+
+.table-row span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table .table-row:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.error {
+  margin: 10px 0 0;
+  color: #ff9a9a;
+  font-size: 0.9rem;
+}
+
+.muted {
+  color: #8692a9;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.status-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+  color: #c2cadb;
+  font-size: 0.9rem;
+}
+
+.activity-card {
+  margin-top: 32px;
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

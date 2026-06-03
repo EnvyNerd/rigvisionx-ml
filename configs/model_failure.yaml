@@ -1,0 +1,14 @@
+# Failure Risk Model Configuration
+
+model:
+  name: failure_risk
+  type: classifier
+
+training:
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.001
+
+evaluation:
+  test_size: 0.2
+  cv_folds: 5
